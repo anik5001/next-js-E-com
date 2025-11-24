@@ -16,16 +16,17 @@ export default function Navbar() {
       <li>
         <Link href="/allProduct">All Products</Link>
       </li>
+      {/* <li><Link href="/managedProduct">Manage Product</Link></li> */}
       <li>
-        <Link href="/">Feature</Link>
+        <Link href="#feature">Feature</Link>
       </li>
       <li>
-        <Link href="/">About Us</Link>
+        <Link href="#about">About Us</Link>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm ">
+    <div className="navbar bg-base-100 shadow-sm sticky -top-8 z-50 rounded-4xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,7 +53,13 @@ export default function Navbar() {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link href="/" className="">
+          <img
+            src="/shopNexa1.png"
+            alt="ShopNexa Logo"
+            className="w-40 h-25 "
+          />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -89,7 +96,7 @@ export default function Navbar() {
               </li>
 
               <li>
-                <Link href="/manage-product">Manage Product</Link>
+                <Link href="/managedProduct">Manage Product</Link>
               </li>
 
               <LoginBtn />

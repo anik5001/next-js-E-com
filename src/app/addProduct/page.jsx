@@ -1,5 +1,5 @@
 "use client";
-import { getServerSession } from "next-auth";
+
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

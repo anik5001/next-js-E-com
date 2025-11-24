@@ -1,10 +1,26 @@
-// "use client";
+"use client";
 import { ShoppingBag, Star } from "lucide-react";
 import Link from "next/link";
+// ("use client");
 
-export default async function page() {
-  const res = await fetch("https://next-js-ecom-server.vercel.app/products");
-  const allProduct = await res.json();
+import { useEffect, useState } from "react";
+
+export const dynamic = "force-dynamic";
+
+export default function AllProduct() {
+  const [allProduct, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://next-js-ecom-server.vercel.app/products", {
+      cache: "no-store",
+    })
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
+  // export default async function page() {
+  // const res = await fetch("https://next-js-ecom-server.vercel.app/products");
+  // const allProduct = await res.json();
   return (
     <div>
       <h1>All Products</h1>
