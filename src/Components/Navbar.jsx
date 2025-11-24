@@ -1,11 +1,12 @@
+"use client";
 import LoginBtn from "@/app/(Auth)/login/page";
 import { User } from "lucide-react";
 import { getServerSession } from "next-auth";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
-export default async function Navbar() {
-  const session = await getServerSession();
+export default function Navbar() {
+  const { data: session } = useSession();
 
   const links = (
     <>
@@ -84,7 +85,7 @@ export default async function Navbar() {
               </li>
 
               <li>
-                <Link href="/add-product">Add Product</Link>
+                <Link href="/addProduct">Add Product</Link>
               </li>
 
               <li>

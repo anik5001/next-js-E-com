@@ -4,7 +4,9 @@ import Link from "next/link";
 export default async function page({ params }) {
   const session = await getServerSession();
   const { id } = await params;
-  const res = await fetch(`http://localhost:4000/products/${id}`);
+  const res = await fetch(
+    `https://next-js-ecom-server.vercel.app/products/${id}`
+  );
   const product = await res.json();
   // console.log(product);
 

@@ -1,8 +1,9 @@
+// "use client";
 import { ShoppingBag, Star } from "lucide-react";
 import Link from "next/link";
 
 export default async function page() {
-  const res = await fetch("http://localhost:4000/products");
+  const res = await fetch("https://next-js-ecom-server.vercel.app/products");
   const allProduct = await res.json();
   return (
     <div>
@@ -18,11 +19,22 @@ export default async function page() {
               {/* Placeholder for actual image - using a colored div if image fails, normally use Next/Image */}
               <div className="absolute inset-0 bg-slate-200 flex items-center justify-center text-slate-400">
                 {/* Replace this img with <Image /> in production */}
-                <img
+                {/* <img
                   src={product.image}
                   alt={product.title}
                   className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
-                />
+                /> */}
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                    No Image
+                  </div>
+                )}
               </div>
             </div>
 
