@@ -1,76 +1,75 @@
-🛒 ShopNexa – Modern E-Commerce Web Application
+# 🛒 ShopNexa – Modern E-Commerce Web Application
 
-ShopNexa is a full-featured e-commerce platform built with a Next.js frontend and an Express.js + MongoDB backend.
-It includes product management, user authentication, and a smooth shopping cart experience with a clean UI powered by DaisyUI.
+ShopNexa is a full-featured e-commerce platform built with a **Next.js frontend** and an **Express.js + MongoDB backend**.  
+It includes authentication, product management, protected routes, and a smooth shopping experience powered by **DaisyUI**.
 
-🔗 Live Demo: https://my-next-js-app-tan-sigma.vercel.app/
+---
 
-🔗 Backend API: https://next-js-ecom-server.vercel.app/
+## 🔗 Live Demo  
+https://my-next-js-app-tan-sigma.vercel.app/
 
-🚀 Features
-🔐 Authentication (NextAuth + Express API)
+## 🔗 Backend API  
+https://next-js-ecom-server.vercel.app/
 
-Login / Register using Email + Password
+---
 
-Secure authentication using NextAuth Credentials Provider
+# 🚀 Features
 
-User information stored in MongoDB via Express.js API
+## 🔐 Authentication (NextAuth + Express API)
+- Login / Register using **Email + Password**
+- Secure authentication using **NextAuth Credentials Provider**
+- User information stored in **MongoDB**
+- Google OAuth support (optional)
 
-Google OAuth support (optional)
+## 🛍️ Product Management
+- Add new products  
+- Edit/update products  
+- Delete products  
+- Fetch products from backend API  
+- Display products with images, price, rating, and category  
 
-🛍️ Product Management
+## 👤 User Features
+- Protected pages (only logged-in users can access)
+- Add products to cart  
+- Manage products  
 
-Add new products
+## 🗄️ Backend (Express.js + MongoDB)
+- REST API endpoints for **users & products**
+- Secure user registration
+- Hosted backend on **Vercel**
 
-Edit and update product details
+## 🎨 UI / UX
+- TailwindCSS + DaisyUI  
+- Modern icons via **lucide-react**
+- SweetAlert2 for alerts
+- Fully responsive modern UI
 
-Delete products
+---
 
-Fetch products from backend API
+# 🏗️ Tech Stack
 
-Display with image, price, category, and rating
+| Category   | Technology |
+|------------|------------|
+| Frontend   | Next.js 16 |
+| Backend    | Express.js, Node.js |
+| Database   | MongoDB |
+| Auth       | NextAuth (Credentials + Google Provider) |
+| Styling    | TailwindCSS, DaisyUI |
+| UI Alerts  | SweetAlert2 |
+| Icons      | lucide-react |
 
-👤 User Features
+---
 
-Protected pages (only logged-in users can access)
+# 📦 Installation & Setup
 
-Add products 
+# 🖥️ Frontend (Next.js)
 
-Managed Products
+## 1️⃣ Clone the repository
 
-🗄️ Backend (Express.js + MongoDB)
-
-REST API endpoints for users & products
-
-Secure user registration
-
-Hosted backend on Vercel 
-
-🎨 UI / UX
-
-TailwindCSS with DaisyUI
-
-Modern icons using lucide-react
-
-Fully responsive interface
-
-SweetAlert2 notifications
-
-🏗️ Tech Stack
-Category	Technology
-Frontend	Next.js 16,
-Backend	Express.js, Node.js
-Database	MongoDB
-Auth	NextAuth (Credentials + Google Provider)
-Styling	TailwindCSS, DaisyUI
-UI Alerts	SweetAlert2
-Icons	lucide-react
-📦 Installation & Setup
-🖥️ Frontend (Next.js)
-1️⃣ Clone the repository
+```bash
 git clone https://github.com/your-username/next-js-E-com.git
 cd next-js-E-com
-
+```
 2️⃣ Install dependencies
 npm install
 
@@ -81,19 +80,17 @@ Create a .env.local file in the project root:
 NEXTAUTH_SECRET=your_random_secret
 NEXTAUTH_URL=http://localhost:3000
 
-
-
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 
 
-✔ You can remove Google keys if not using Google login.
+✔ You may remove Google keys if not using Google login.
 
 4️⃣ Run the frontend
 npm run dev
 
 
-Frontend will start at:
+Your frontend will start at:
 
 http://localhost:3000
 
@@ -103,7 +100,7 @@ If you want to run backend locally:
 
 1️⃣ Clone backend repository
 git clone https://github.com/your-username/shopnexa-backend.git
-cd shopnexa-backend
+cd foldername
 
 2️⃣ Install dependencies
 npm install
@@ -112,7 +109,7 @@ npm install
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 
-4️⃣ Run backend
+4️⃣ Run backend server
 npm start
 
 
