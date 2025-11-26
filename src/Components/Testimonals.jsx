@@ -32,7 +32,7 @@ export default function Testimonals() {
     <section className="py-24 bg-slate-50 border-t border-slate-200">
       <div className="container mx-auto px-6 text-center">
         <h1 className="font-bold text-3xl "> What People Say </h1>
-        <p>
+        <p className="mb-5">
           {" "}
           Don't just take our word for it. Here's what our community thinks.
         </p>

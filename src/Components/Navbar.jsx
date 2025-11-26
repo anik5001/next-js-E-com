@@ -1,32 +1,79 @@
 "use client";
-import LoginBtn from "@/app/(Auth)/login/page";
-import { User } from "lucide-react";
-import { getServerSession } from "next-auth";
+import SignOutBtn from "@/app/(Auth)/signOut/page";
+
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { data: session } = useSession();
-
+  const pathname = usePathname();
   const links = (
     <>
       <li>
-        <Link href="/">Home</Link>
+        <Link
+          href="/"
+          className={`${
+            pathname === "/"
+              ? "text-blue-600 font-bold border-b-2 border-blue-600"
+              : ""
+          }`}
+        >
+          Home
+        </Link>
       </li>
       <li>
-        <Link href="/allProduct">All Products</Link>
+        <Link
+          href="/allProduct"
+          className={`${
+            pathname === "/allProduct"
+              ? "text-blue-600 font-bold border-b-2 border-blue-600"
+              : ""
+          }`}
+        >
+          All Products
+        </Link>
       </li>
-      {/* <li><Link href="/managedProduct">Manage Product</Link></li> */}
+      {/* <li>
+        <Link
+          href="/managedProduct"
+          className={`${
+            pathname === "/managedProduct"
+              ? "text-blue-600 font-bold border-b-2 border-blue-600"
+              : ""
+          }`}
+        >
+          Manage Product
+        </Link>
+      </li> */}
       <li>
-        <Link href="#feature">Feature</Link>
+        <Link
+          href="/feature"
+          className={`${
+            pathname === "/feature"
+              ? "text-blue-600 font-bold border-b-2 border-blue-600"
+              : ""
+          }`}
+        >
+          Feature
+        </Link>
       </li>
       <li>
-        <Link href="#about">About Us</Link>
+        <Link
+          href="/about"
+          className={`${
+            pathname === "/about"
+              ? "text-blue-600 font-bold border-b-2 border-blue-600"
+              : ""
+          }`}
+        >
+          About Us
+        </Link>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm sticky -top-8 z-50 rounded-4xl ">
+    <div className="navbar bg-base-100 shadow-sm sticky -top-3 z-50 rounded-4xl mb-5 p-3 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,12 +100,10 @@ export default function Navbar() {
             {links}
           </ul>
         </div>
-        <Link href="/" className="">
-          <img
-            src="/shopNexa1.png"
-            alt="ShopNexa Logo"
-            className="w-40 h-25 "
-          />
+        <Link href="/">
+          <h1 className="text-2xl sm:text-[36px] my-0 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            ShopNexa
+          </h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -92,18 +137,37 @@ export default function Navbar() {
               </li>
 
               <li>
-                <Link href="/addProduct">Add Product</Link>
+                <Link
+                  href="/addProduct"
+                  className={`${
+                    pathname === "/addProduct"
+                      ? "text-blue-600 font-bold border-b-2 border-blue-600"
+                      : ""
+                  }`}
+                >
+                  Add Product
+                </Link>
               </li>
 
               <li>
-                <Link href="/managedProduct">Manage Product</Link>
+                <Link
+                  href="/managedProduct"
+                  className={`${
+                    pathname === "/managedProduct"
+                      ? "text-blue-600 font-bold border-b-2 border-blue-600"
+                      : ""
+                  }`}
+                >
+                  Manage Product
+                </Link>
               </li>
 
-              <LoginBtn />
+              <SignOutBtn />
             </ul>
           </div>
         ) : (
-          <a href="/api/auth/signin">Sign In</a>
+          // <Link href="/api/auth/signin">Sign In</Link>
+          <Link href="/login">Sign In</Link>
         )}
       </div>
     </div>

@@ -7,13 +7,13 @@ import { useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";
 
-export default function AllProduct() {
+export default function LatestProduct() {
   const [allProduct, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://next-js-ecom-server.vercel.app/products", {
+    fetch("https://next-js-ecom-server.vercel.app/latest-products", {
       cache: "no-store",
     })
       .then((res) => res.json())
@@ -34,7 +34,7 @@ export default function AllProduct() {
   // const allProduct = await res.json();
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center my-4">All Products</h1>
+      <h1 className="text-2xl text-center font-bold my-5">Latest Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {allProduct.map((product) => (
           <div
@@ -108,6 +108,9 @@ export default function AllProduct() {
             </div>
           </div>
         ))}
+      </div>
+      <div className="text-xl text-center text-secondary font-bold my-10 hover:text-2xl">
+        <Link href="/allProduct">See All</Link>
       </div>
     </div>
   );

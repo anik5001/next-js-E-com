@@ -3,8 +3,10 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function AddProduct() {
+  const [loading, setLoading] = useState(false);
   // const session = getServerSession();
   const router = useRouter();
   const { data: session } = useSession();
@@ -27,7 +29,7 @@ export default function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const res = await fetch("https://next-js-ecom-server.vercel.app/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,10 +38,17 @@ export default function AddProduct() {
 
     const data = await res.json();
 
-    alert("Product Added Successfully!");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your product has been added",
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
     // 🔥 Navigate to product list page
     router.push("/allProduct");
+    setLoading(false);
   };
 
   return (
@@ -95,7 +104,11 @@ export default function AddProduct() {
           type="submit"
           className="bg-blue-600 text-white p-2 rounded cursor-pointer"
         >
-          Add Product
+          {loading ? (
+            <span className="loading loading-spinner loading-xl"></span>
+          ) : (
+            "Add Product"
+          )}
         </button>
       </form>
     </div>

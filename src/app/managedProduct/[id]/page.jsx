@@ -27,7 +27,7 @@ export default async function page({ params }) {
             ${product.price}
           </span>
           <span className="line-through text-gray-400">
-            ${product.oldPrice}
+            ${product?.oldPrice}
           </span>
         </div>
 
